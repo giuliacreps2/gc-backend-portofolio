@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft, ExternalLink, Mail, ChevronRight } from "lucide-react";
 import { projects } from "../data/projects";
+import NavbarDetail from "../components/NavbarDetails";
+import NavbarHome from "../components/NavbarHome";
 
 // --- SIDEBAR VOCI ---
 const sidebarSections = [
@@ -50,27 +52,18 @@ const ProjectDetail = () => {
     <div style={{ background: "var(--bg)", color: "var(--text-secondary)", minHeight: "100vh" }}>
 
       {/* ── NAVBAR ── */}
-      <nav className="navbar">
-        <span className="navbar-logo">
-          GC <span className="logo-bar" />
-        </span>
-        <button
-          className="btn btn-ghost"
-          onClick={() => navigate("/")}
-          style={{ display: "flex", alignItems: "center", gap: 8 }}
-        >
-          <ArrowLeft size={15} /> Back
-        </button>
-      </nav>
+     <div className="navbar-spacer" />
+      <NavbarHome/>
 
-      <div className="navbar-spacer" />
 
       {/* ── LAYOUT PRINCIPALE: sidebar + contenuto ── */}
-      <div className="page-wrapper" style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: "48px", alignItems: "start", padding: "48px var(--page-padding-x)" }}>
+      <div className="page-wrapper1" style={{gridTemplateColumns: "220px 1fr", alignItems: "start", padding: "48px var(--page-padding-x)" }}>
 
+
+<NavbarDetail/>
         {/* ── SIDEBAR ── */}
         <aside style={{ position: "sticky", top: "calc(var(--nav-height) + 24px)" }}>
-          <nav style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <nav className="nav-details" style={{flexDirection: "column", gap: "4px" }}>
             {sidebarSections.map((s) => (
               <button
                 key={s.id}
@@ -98,6 +91,7 @@ const ProjectDetail = () => {
             ))}
           </nav>
         </aside>
+    
 
         {/* ── CONTENUTO PRINCIPALE ── */}
         <main style={{ display: "flex", flexDirection: "column", gap: "64px", minWidth: 0 }}>

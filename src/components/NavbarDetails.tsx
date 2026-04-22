@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
@@ -6,7 +6,7 @@ const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
 
   return (
     <nav className="navbar">
-      <span className="navbar-logo">
+      <span className="navbar-logo" onClick={() => navigate("/")}>
         GC <span className="logo-bar" />
       </span>
 
@@ -36,7 +36,7 @@ const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
       )}
 
       <button className="btn btn-ghost" onClick={() => navigate("/")}>
-        <ArrowLeft size={15} /> Back
+        Contact me  <ArrowRight size={15} />
       </button>
     </nav>
   );
