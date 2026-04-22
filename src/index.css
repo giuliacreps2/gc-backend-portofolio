@@ -315,7 +315,7 @@ p {
   font-weight: 600;
   background: transparent;
   color: var(--accent);
-  padding: 9px 20px;
+  padding: 9px 18px;
   
 }
 
@@ -513,13 +513,14 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1.5px solid var(--border);
-  background: var(--bg);
+  border: 1.5px solid var(--blue-glow);
+  background: var(--blue-glow);
   padding: 9px 18px;
   border-radius: var(--radius-xl);
   font-size: 0.7rem;
-  font-weight: 400;
-  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--blue);
   cursor: default;
   transition: border-color var(--transition), transform var(--transition);
 }

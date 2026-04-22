@@ -1,4 +1,5 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import imgProgetto1 from '../assets/images/Screenshot1.png';
 import imgProgetto2 from '../assets/images/Screenshot2.png'
 import imgProgetto3 from '../assets/images/Screenshot3.png'
@@ -6,6 +7,7 @@ import imgProgetto3 from '../assets/images/Screenshot3.png'
 
 const projects = [
   {
+    id: "order-management",
     title: "Order Management System",
     description: "REST API per la gestione degli ordini con ruoli utente e autenticazione JWT.",
     tags: ["☕Java", "🌱Spring Boot", "🐘PostgreSQL"],
@@ -14,6 +16,7 @@ const projects = [
     image: imgProgetto1,
   },
   {
+    id: "task-manager",
     title: "Task Manager API",
     description: "API per la gestione delle attività con utenti, scadenze e priorità.",
     tags: ["☕Java", "🌱Spring Boot", "🐘MongoDB"],
@@ -22,6 +25,7 @@ const projects = [
     image: imgProgetto2,
   },
   {
+     id: "auth-service",
     title: "Auth Service",
     description: "Servizio di autenticazione con JWT, refresh token e gestione ruoli.",
     tags: ["☕Java", "🌱Spring Security", "🐘PostgreSQL"],
@@ -34,6 +38,7 @@ const projects = [
 // --- COMPONENTE ---
 
 const Projects = () => {
+  const navigate = useNavigate();
   return (
     <section className="section" id="projects">
       <div className="page-wrapper">
@@ -49,7 +54,7 @@ const Projects = () => {
           border: "1.5px solid var(--border)",
           borderRadius: "var(--radius-xl)",
           background: "var(--bg-surface)",
-          padding: "32px",
+          padding: "21px",
         }}>
 
           {/* Grid delle card */}
@@ -91,6 +96,7 @@ const Projects = () => {
                   }}
                     onMouseEnter={e => (e.currentTarget.style.gap = "10px")}
                     onMouseLeave={e => (e.currentTarget.style.gap = "6px")}
+                    onClick={() => navigate(`/projects/${project.id}`)}
                   >
                     Case study <ArrowRight size={15} />
                   </a>

@@ -1,17 +1,19 @@
-import About from './components/About'
-import Footer from './components/Footer'
-import Hero from './components/Hero'
-import Projects from './components/Projects'
+
 import './index.css'
+import Home from './pages/Home';
+import ProjectDetail from './pages/ProjectDetail'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
     <>
-    <Hero/>
-    <Projects/>
-    <About/>
-    <Footer/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
