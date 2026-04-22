@@ -1,0 +1,41 @@
+import { Mail } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer>
+      <div className="footer-inner">
+
+        <span className="navbar-logo">
+          GC
+          <span className="logo-bar" />
+        </span>
+
+        <p className="footer-copy">
+          © 2026 Giulia Crepaldi. All rights reserved.
+        </p>
+
+        <div className="footer-socials">
+          {[
+            { href: "https://github.com/tuoprofilo", icon: <Mail size={18} />, label: "GitHub" },
+            { href: "https://linkedin.com/in/tuoprofilo", icon: <Mail size={18} />, label: "LinkedIn" },
+            { href: "mailto:tuamail@email.com", icon: <Mail size={18} />, label: "Email" },
+          ].map(({ href, icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="social-link"
+            >
+              {icon}
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
