@@ -35,7 +35,7 @@ const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
         </div>
       )}
 
-      <button className="btn btn-ghost" onClick={() => navigate("/")}>
+      <button className="btn btn-primary1" onClick={() => navigate("/")}>
         Contact me  <ArrowRight size={15} />
       </button>
     </nav>

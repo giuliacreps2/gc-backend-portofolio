@@ -64,6 +64,7 @@
    RESET & BASE
    ============================================================ */
 *, *::before, *::after {
+   /*outline: 1px solid red;*/
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -287,6 +288,20 @@ p {
 }
 
 .btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 0 36px var(--accent-glow);
+}
+
+.btn-primary1 {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 24px var(--accent-glow);
+  padding: 9px 20px;
+  font-size: 0.82rem;
+}
+
+.btn-primary1:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
   box-shadow: 0 0 36px var(--accent-glow);

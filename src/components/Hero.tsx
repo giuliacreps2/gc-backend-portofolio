@@ -142,7 +142,7 @@ const Hero = () => {
           </div>
 
           {/* Colonna destra — Code Window */}
-          <div style={{ display: "flex", justifyContent: "flex-end", position: "relative" }}>
+          <div style={{ display: "flex", justifyContent: "flex-end", position: "relative", overflow: "hidden" }}>
             {/* Glow decorativi */}
             <div style={{
               position: "absolute", top: -30, right: -30,
