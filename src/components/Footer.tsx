@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div className="footer-socials">
           {[
-            { href: "https://github.com/tuoprofilo", icon: <Mail size={18} />, label: "GitHub" },
+            { href: "https://github.com/giuliacreps2", icon: <Mail size={18} />, label: "GitHub" },
             { href: "https://linkedin.com/in/tuoprofilo", icon: <Mail size={18} />, label: "LinkedIn" },
             { href: "mailto:tuamail@email.com", icon: <Mail size={18} />, label: "Email" },
           ].map(({ href, icon, label }) => (

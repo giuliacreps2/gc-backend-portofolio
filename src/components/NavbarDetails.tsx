@@ -1,8 +1,19 @@
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
   const navigate = useNavigate();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 3550);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className="navbar">
@@ -35,7 +46,9 @@ const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
         </div>
       )}
 
-      <button className="btn btn-primary1" onClick={() => navigate("/")}>
+        <button
+        className={`btn ${scrolled ? "btn-ghost" :  "btn-primary1"}`}
+      onClick={() => navigate("/")}>
         Contact me  <ArrowRight size={15} />
       </button>
     </nav>

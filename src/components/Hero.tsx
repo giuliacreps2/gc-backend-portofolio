@@ -1,4 +1,5 @@
 import { ArrowRight, ExternalLink, Code2, Database, ShieldCheck } from "lucide-react";
+import NavbarHome from "./NavbarHome";
 
 // --- DATI ---
 
@@ -40,7 +41,7 @@ const features = [
   { title: "SECURE & RELIABLE", description: "Authentication, authorization and data validation by default.",               Icon: ShieldCheck },
 ];
 
-const navLinks = ["Home", "Projects", "Tech Stack", "About", "Contact"];
+{/*const navLinks = ["Home", "Projects", "Tech Stack", "About", "Contact"];*/}
 
 // --- COMPONENTE ---
 
@@ -49,7 +50,7 @@ const Hero = () => {
     <div style={{ background: "var(--bg)", color: "var(--text-secondary)", minHeight: "100vh" }}>
 
       {/* ── NAVBAR ── */}
-      <nav className="navbar">
+      {/*<nav className="navbar">
         <span className="navbar-logo">
           GC
           <span className="logo-bar" />
@@ -66,7 +67,8 @@ const Hero = () => {
         <button className="btn btn-ghost">
           Contact me <ArrowRight size={15} />
         </button>
-      </nav>
+      </nav>*/}
+      <NavbarHome/>
 
       <main className="page-wrapper">
         <div className="navbar-spacer" />
@@ -135,9 +137,9 @@ const Hero = () => {
               <button className="btn btn-primary">
                 View projects <ArrowRight size={17} />
               </button>
-              <button className="btn btn-secondary">
+              <a href="https://github.com/giuliacreps2" className="btn btn-secondary">
                 GitHub <ExternalLink size={15} />
-              </button>
+              </a>
             </div>
           </div>
 
