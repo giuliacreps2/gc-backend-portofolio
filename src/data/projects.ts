@@ -1,3 +1,5 @@
+import drawSQLLanzi from "../assets/images/drawSQL-image-Lanzi-Orto-Urbano.jpg"
+
 // --- TIPI ---
 
 export interface ApiEndpoint {
@@ -43,70 +45,55 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "order-management",
-    title: "Order Management System",
-    shortDescription: "REST API per la gestione degli ordini con ruoli utente e autenticazione JWT.",
-    tags: ["Java", "Spring Boot", "PostgreSQL", "JWT"],
-    githubUrl: "https://github.com/tuoprofilo/order-management",
-    demoUrl: undefined,
+    id: "lanzi-orto-urbano",
+    title: "Lanzi Orto Urbano",
+    shortDescription: "E-commerce backend con tracciabilità lotti, gestione B2B/B2C e sistema punti.",
+    tags: ["Java", "Spring Boot", "PostgreSQL", "JWT", "E-commerce"],
+    githubUrl: "https://github.com/giuliacreps2/Lanzi-Orto-Urbano-Management",
     image: null,
 
-    overview: `Sistema backend per la gestione completa degli ordini e-commerce. Espone una REST API consumabile da qualsiasi frontend o client mobile. Gestisce utenti con ruoli differenziati (ADMIN, USER), autenticazione JWT e operazioni CRUD complete su ordini e prodotti.`,
+    overview: `Piattaforma e-commerce per la vendita di microgreens con gestione avanzata di ordini, utenti e magazzino. Il sistema integra un modello di tracciabilità basato su lotti di produzione, permettendo di seguire ogni prodotto dalla semina alla consegna.`,
 
-    problem: `Le applicazioni e-commerce necessitano di un layer backend solido che gestisca ordini concorrenti, sicurezza degli endpoint per ruolo, e coerenza dei dati anche in scenari di errore. Molte implementazioni naive non separano correttamente i layer o non gestiscono l'autenticazione in modo stateless.`,
+    problem: `Gli e-commerce alimentari necessitano di sistemi affidabili per la gestione delle scorte e la tracciabilità dei prodotti. Inoltre, la coesistenza di clienti B2B e B2C introduce complessità nella gestione dei prezzi, degli ordini e della fidelizzazione.`,
 
-    solution: [
-      "REST API con endpoints semantici e response uniformi",
-      "JWT stateless: nessuna sessione server-side",
-      "Separazione netta in Controller → Service → Repository",
-      "Gestione errori centralizzata con @ControllerAdvice",
-      "Validazione input con Bean Validation (@Valid)",
-    ],
+     solution: [
+    "Sistema di tracciabilità basato su lotti ed etichette",
+    "Gestione multi-ruolo (ADMIN, B2B, B2C)",
+    "Sistema punti condiviso tra segmenti",
+    "Riordino automatico per clienti B2B",
+    "Architettura REST scalabile con separazione dei layer",
+  ],
 
     architecture: {
-      systemFlow: ["Client", "Controller", "Service", "Repository", "PostgreSQL"],
-      erdImage: null,
-      dataDecisions: [
-        "Users ↔ Roles (many-to-many tramite tabella ponte)",
-        "Orders ↔ Items (one-to-many, cascade delete)",
-        "Products separati dagli OrderItems per storicizzare i prezzi",
-      ],
-    },
-
-    apiEndpoints: [
-      {
-        method: "GET",
-        path: "/api/orders/{id}",
-        description: "Recupera un ordine per ID",
-        responseExample: `{
-  "id": 1,
-  "status": "SHIPPED",
-  "createdAt": "2024-01-15T10:30:00",
-  "items": [
-    { "productId": 42, "quantity": 2, "price": 29.99 }
-  ]
-}`,
-      },
-      {
-        method: "POST",
-        path: "/api/orders",
-        description: "Crea un nuovo ordine",
-        responseExample: `{
-  "id": 2,
-  "status": "PENDING",
-  "createdAt": "2024-01-16T08:00:00"
-}`,
-      },
-      {
-        method: "PUT",
-        path: "/api/orders/{id}/status",
-        description: "Aggiorna lo status di un ordine (solo ADMIN)",
-        responseExample: `{
-  "id": 1,
-  "status": "DELIVERED"
-}`,
-      },
+    systemFlow: ["Client", "Controller", "Service", "Repository", "PostgreSQL"],
+    erdImage: drawSQLLanzi,
+    dataDecisions: [
+      "Lotti separati dai prodotti per garantire tracciabilità storica",
+      "Relazione Orders ↔ Labels per associare ogni spedizione al lotto",
+      "Sistema punti modellato come ledger (storico movimenti)",
     ],
+  },
+
+     apiEndpoints: [
+    {
+      method: "POST",
+      path: "/api/ordini",
+      description: "Crea un nuovo ordine",
+      responseExample: `{
+  "id": 10,
+  "status": "CREATED"
+}`,
+    },
+    {
+      method: "POST",
+      path: "/api/admin/lotti",
+      description: "Crea un lotto di semina",
+      responseExample: `{
+  "numeroLotto": "MG-2024-001"
+}`,
+    },
+  ],
+
 
     frontendIntegration: {
       description: "Il sistema espone un endpoint di login che restituisce un JWT. Il client lo salva e lo invia in ogni richiesta successiva nell'header Authorization.",
@@ -119,88 +106,94 @@ export const projects: Project[] = [
       ],
     },
 
-    challenges: [
-      "Implementare RBAC (Role-Based Access Control) granulare con Spring Security",
-      "Mantenere la clean architecture senza leakage tra i layer",
-      "Garantire coerenza dei dati durante operazioni multi-step con @Transactional",
-    ],
+     challenges: [
+    "Progettare un sistema di tracciabilità coerente e scalabile",
+    "Gestire logiche diverse per B2B e B2C nello stesso dominio",
+    "Mantenere consistenza del magazzino in operazioni concorrenti",
+  ],
 
     improvements: [
-      "Aggiungere caching con Redis per prodotti e ordini frequenti",
-      "Implementare paginazione e filtri avanzati sulle liste",
-      "Passare ad architettura event-driven con Kafka per notifiche",
-    ],
+    "Integrazione con scanner QR per etichette",
+    "Caching per prodotti e disponibilità",
+    "Event-driven architecture per notifiche",
+  ],
 
-    results: [
-      "API design RESTful con endpoints intuitivi e documentati",
-      "Data modeling relazionale con vincoli di integrità",
-      "Struttura backend scalabile e manutenibile",
+     results: [
+    "Dominio complesso modellato correttamente",
+    "Sistema di tracciabilità completo",
+    "Backend pronto per contesti reali",
+  ],
+  },
+
+ {
+  id: "bstudent",
+  title: "BStudent",
+  shortDescription: "Piattaforma e-learning con abbonamenti, contenuti premium e tracking progressi.",
+  tags: ["Java", "Spring Boot", "PostgreSQL", "JWT", "E-learning"],
+  githubUrl: "https://github.com/giuliacreps2/BStudent-Management",
+  image: null,
+
+  overview: `Piattaforma e-learning per lo studio del Latino e del Greco con contenuti premium, test di verifica e sistema di progress tracking. Integra logiche di abbonamento e gestione accessi basata su ruoli.`,
+
+  problem: `Le piattaforme educative richiedono controllo degli accessi ai contenuti, gestione degli abbonamenti e tracciamento dei progressi. È necessario progettare un sistema scalabile che separi utenti free e premium senza duplicare logica.`,
+
+  solution: [
+    "Sistema di abbonamento con accesso premium",
+    "Gestione contenuti protetti tramite ruolo",
+    "Tracking progressi per utente e capitolo",
+    "Integrazione con servizi esterni (Vimeo)",
+  ],
+
+  architecture: {
+    systemFlow: ["Client", "Controller", "Service", "Repository", "PostgreSQL", "External APIs"],
+    erdImage: null,
+    dataDecisions: [
+      "Separazione tra contenuti e accessi (authorization layer)",
+      "Progress tracking per utente e capitolo",
+      "Ruoli distinti: FREE, PREMIUM, ADMIN",
     ],
   },
 
-  {
-    id: "task-manager",
-    title: "Task Manager API",
-    shortDescription: "API per la gestione delle attività con utenti, scadenze e priorità.",
-    tags: ["Java", "Spring Boot", "MongoDB"],
-    githubUrl: "https://github.com/tuoprofilo/task-manager",
-    image: null,
-
-    overview: `API per la gestione di task personali e di team. Supporta assegnazione utenti, priorità, scadenze e stati del task. Usa MongoDB per la flessibilità dello schema.`,
-
-    problem: `I sistemi di task management richiedono strutture dati flessibili (i task possono avere attributi variabili) e query efficienti per filtri multipli (per utente, priorità, scadenza).`,
-
-    solution: [
-      "MongoDB per schema flessibile e query su campi annidati",
-      "Filtri combinabili tramite query params",
-      "Assegnazione task a più utenti",
-      "Notifiche scadenza (base)",
-    ],
-
-    architecture: {
-      systemFlow: ["Client", "Controller", "Service", "Repository", "MongoDB"],
-      erdImage: null,
-      dataDecisions: [
-        "Document-based: ogni task contiene gli assignees embedded",
-        "Indici su dueDate e priority per query performanti",
-      ],
+  apiEndpoints: [
+    {
+      method: "GET",
+      path: "/api/corsi/{id}",
+      description: "Dettaglio corso",
+      responseExample: `{
+  "title": "Latino Base",
+  "chapters": 10
+}`,
     },
+  ],
 
-    apiEndpoints: [
-      {
-        method: "GET",
-        path: "/api/tasks",
-        description: "Lista task con filtri opzionali",
-        responseExample: `[
-  {
-    "id": "abc123",
-    "title": "Fix login bug",
-    "priority": "HIGH",
-    "dueDate": "2024-02-01",
-    "status": "IN_PROGRESS"
-  }
-]`,
-      },
-    ],
-
-    frontendIntegration: null,
-
-    challenges: [
-      "Progettare query flessibili con filtri multipli combinabili",
-      "Gestire la consistenza in assenza di transazioni ACID native",
-    ],
-
-    improvements: [
-      "WebSocket per aggiornamenti real-time",
-      "Sistema di notifiche email per scadenze",
-    ],
-
-    results: [
-      "API flessibile con MongoDB",
-      "Filtri multipli combinabili",
-      "Schema adattabile a requisiti variabili",
+  frontendIntegration: {
+    description: "Frontend React con controllo accessi basato su stato abbonamento.",
+    loginImage: null,
+    howItConnects: [
+      "Login → JWT",
+      "Verifica ruolo per accesso contenuti",
+      "Blocchi UI per utenti FREE",
     ],
   },
+
+  challenges: [
+    "Gestire contenuti protetti senza esporli lato client",
+    "Progettare sistema abbonamenti scalabile",
+    "Integrare servizi esterni (video hosting)",
+  ],
+
+  improvements: [
+    "Integrazione pagamento reale (Stripe)",
+    "Gamification",
+    "AI recommendation system",
+  ],
+
+  results: [
+    "Sistema e-learning completo",
+    "Gestione accessi robusta",
+    "Struttura pronta per scalare",
+  ],
+},
 
   {
     id: "auth-service",
@@ -223,7 +216,7 @@ export const projects: Project[] = [
 
     architecture: {
       systemFlow: ["Client", "Auth Controller", "Auth Service", "Token Repository", "PostgreSQL"],
-      erdImage: null,
+      erdImage: "https://drawsql.app/teams/giulia-crepaldi/diagrams/lanzi-orto-urbano-management/embed",
       dataDecisions: [
         "RefreshToken salvato su DB per poter fare revoca",
         "Password hashata con BCrypt (cost factor 12)",

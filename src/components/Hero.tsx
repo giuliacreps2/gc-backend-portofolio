@@ -1,5 +1,4 @@
 import { ArrowRight, ExternalLink, Code2, Database, ShieldCheck } from "lucide-react";
-import NavbarHome from "./NavbarHome";
 
 // --- DATI ---
 
@@ -28,20 +27,21 @@ const colorMap: Record<string, string> = {
 
 const techStack = [
   { name: "Java",        icon: "☕" },
-  { name: "Spring Boot", icon: "🌱" },
+  { name: "Spring", icon: "🌱" },
   { name: "PostgreSQL",  icon: "🐘" },
   { name: "REST API",    icon: "{}" },
-  { name: "Docker",      icon: "🐳" },
+  { name: "React",      icon: "🌐​" },
+  { name: "Typescript",      icon: "🟦​​" },
   { name: "Git",         icon: "🔶" },
 ];
 
 const features = [
-  { title: "API FIRST",         description: "I design and develop RESTful APIs with a focus on usability and scalability.", Icon: Code2 },
-  { title: "DATA DRIVEN",       description: "I model relational databases and write optimized queries.",                    Icon: Database },
-  { title: "SECURE & RELIABLE", description: "Authentication, authorization and data validation by default.",               Icon: ShieldCheck },
+  { title: "API FIRST",         description: "Progetto e sviluppo API RESTful con attenzione a usabilità e scalabilità.", Icon: Code2 },
+  { title: "DATA DRIVEN",       description: "Modello database relazionali e scrivo query ottimizzate.",                    Icon: Database },
+  { title: "SECURE & RELIABLE", description: "Autenticazione, autorizzazione e validazione dei dati come standard di progetto.",               Icon: ShieldCheck },
 ];
 
-{/*const navLinks = ["Home", "Projects", "Tech Stack", "About", "Contact"];*/}
+const navLinks = ["Home", "Projects", "Tech Stack", "About", "Contact"];
 
 // --- COMPONENTE ---
 
@@ -49,32 +49,11 @@ const Hero = () => {
   return (
     <div style={{ background: "var(--bg)", color: "var(--text-secondary)", minHeight: "100vh" }}>
 
-      {/* ── NAVBAR ── */}
-      {/*<nav className="navbar">
-        <span className="navbar-logo">
-          GC
-          <span className="logo-bar" />
-        </span>
-
-        <div className="navbar-links">
-          {navLinks.map((link, i) => (
-            <a key={link} href="#" className={`nav-link${i === 0 ? " active" : ""}`}>
-              {link}
-            </a>
-          ))}
-        </div>
-
-        <button className="btn btn-ghost">
-          Contact me <ArrowRight size={15} />
-        </button>
-      </nav>*/}
-      <NavbarHome/>
-
       <main className="page-wrapper">
         <div className="navbar-spacer" />
 
         {/* ── HERO ── */}
-        <section className="hero-grid section" style={{
+        <section id="hero" className="hero-grid section" style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "60px",
@@ -118,7 +97,7 @@ const Hero = () => {
             </div>
 
             <p style={{ fontSize: "1.05rem", maxWidth: "440px" }}>
-              I build REST APIs, design database schemas and develop reliable business logic.
+             Sviluppo API REST, modello database relazionali e costruisco logiche backend pensate per restare chiare e pronte ad evolvere.
             </p>
 
             <p style={{
@@ -127,16 +106,16 @@ const Hero = () => {
               fontSize: "0.9rem",
               color: "var(--text-muted)",
             }}>
-              Focused on{" "}
-              <span style={{ color: "var(--accent)", fontWeight: 600 }}>clean code, maintainability</span>
-              {" "}and{" "}
-              <span style={{ color: "var(--accent)", fontWeight: 600 }}>real-world solutions</span>.
+              Focus su{" "}
+              <span style={{ color: "var(--accent)", fontWeight: 600 }}>architetture pulite, sostenibili</span>
+              {" "}e{" "}
+              <span style={{ color: "var(--accent)", fontWeight: 600 }}>scalabili</span>.
             </p>
 
             <div className="hero-buttons" style={{ display: "flex", gap: "16px", flexWrap: "wrap", paddingTop: "8px" }}>
-              <button className="btn btn-primary">
-                View projects <ArrowRight size={17} />
-              </button>
+              <a href={`#${"Projects"}`} className="btn btn-primary">
+                Guarda i progetti <ArrowRight size={17} />
+              </a>
               <a href="https://github.com/giuliacreps2" className="btn btn-secondary">
                 GitHub <ExternalLink size={15} />
               </a>
@@ -187,7 +166,7 @@ const Hero = () => {
         {/* ── TECH STACK ── */}
         <section style={{ marginBottom: "60px" }}>
           <div className="tech-bar">
-            <span className="label">Tech Stack</span>
+            <span className="label">Stack Tecnico</span>
             <div className="tech-bar-divider" />
             <div className="tech-badges">
               {techStack.map((tech) => (

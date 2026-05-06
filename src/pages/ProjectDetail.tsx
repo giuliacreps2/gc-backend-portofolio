@@ -3,19 +3,20 @@ import { ArrowRight, ArrowLeft, ExternalLink, Mail, ChevronRight } from "lucide-
 import { projects } from "../data/projects";
 import NavbarDetail from "../components/NavbarDetails";
 import NavbarHome from "../components/NavbarHome";
+import Footer from "../components/Footer";
 
 // --- SIDEBAR VOCI ---
 const sidebarSections = [
   { id: "overview",     label: "Overview" },
-  { id: "problem",      label: "Problem" },
-  { id: "solution",     label: "Solution" },
-  { id: "architecture", label: "Architecture" },
+  { id: "problema",      label: "Problema" },
+  { id: "solution",     label: "Soluzione" },
+  { id: "architecture", label: "Architettura" },
   { id: "data-model",   label: "Data Model (ERD)" },
   { id: "api",          label: "API" },
-  { id: "frontend",     label: "Frontend Integration" },
-  { id: "challenges",   label: "Challenges" },
-  { id: "improvements", label: "Improvements" },
-  { id: "results",      label: "Results" },
+  { id: "frontend",     label: "Integrazione Frontend" },
+  { id: "challenges",   label: "Sfide" },
+  { id: "improvements", label: "Implementazioni" },
+  { id: "results",      label: "Risultati" },
 ];
 
 // --- METODO BADGE COLOR ---
@@ -129,15 +130,15 @@ const ProjectDetail = () => {
             <p style={{ lineHeight: 1.85, whiteSpace: "pre-line" }}>{project.overview}</p>
           </div>
 
-          {/* ── PROBLEM ── */}
-          <div id="problem" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <SectionTitle>Problem</SectionTitle>
+          {/* ── PROBLEMa ── */}
+          <div id="problema" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <SectionTitle>Problema</SectionTitle>
             <p style={{ lineHeight: 1.85 }}>{project.problem}</p>
           </div>
 
           {/* ── SOLUTION ── */}
           <div id="solution" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <SectionTitle>Solution</SectionTitle>
+            <SectionTitle>Soluzione</SectionTitle>
             <ul style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {project.solution.map((s, i) => (
                 <li key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
@@ -150,7 +151,7 @@ const ProjectDetail = () => {
 
           {/* ── ARCHITECTURE ── */}
           <div id="architecture" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            <SectionTitle>Architecture</SectionTitle>
+            <SectionTitle>Architettura</SectionTitle>
 
             {/* System Flow */}
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
@@ -214,7 +215,7 @@ const ProjectDetail = () => {
             <SectionTitle>API</SectionTitle>
             {project.apiEndpoints.map((endpoint, i) => (
               <div key={i} style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <SubTitle>Example endpoint</SubTitle>
+                <SubTitle>Esempi di endpoint</SubTitle>
 
                 {/* Endpoint badge */}
                 <div style={{
@@ -270,7 +271,7 @@ const ProjectDetail = () => {
           {/* ── FRONTEND INTEGRATION ── */}
           {project.frontendIntegration && (
             <div id="frontend" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-              <SectionTitle>Frontend Integration</SectionTitle>
+              <SectionTitle>Integrazione Frontend</SectionTitle>
               <SubTitle>Login flow</SubTitle>
 
               {/* Screenshot placeholder */}
@@ -287,7 +288,7 @@ const ProjectDetail = () => {
               </div>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <SubTitle>How it connects</SubTitle>
+                <SubTitle>Come si connette</SubTitle>
                 <p style={{ fontSize: "0.9rem", lineHeight: 1.75 }}>{project.frontendIntegration.description}</p>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "8px" }}>
                   {project.frontendIntegration.howItConnects.map((step, i) => (
@@ -303,7 +304,7 @@ const ProjectDetail = () => {
 
           {/* ── CHALLENGES ── */}
           <div id="challenges" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <SectionTitle>Challenges</SectionTitle>
+            <SectionTitle>Sfide</SectionTitle>
             <ul style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {project.challenges.map((c, i) => (
                 <li key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
@@ -316,7 +317,7 @@ const ProjectDetail = () => {
 
           {/* ── IMPROVEMENTS ── */}
           <div id="improvements" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <SectionTitle>What I'd improve</SectionTitle>
+            <SectionTitle>Implementazioni</SectionTitle>
             <ul style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {project.improvements.map((item, i) => (
                 <li key={i} style={{ display: "flex", gap: "10px", alignItems: "flex-start" }}>
@@ -329,7 +330,7 @@ const ProjectDetail = () => {
 
           {/* ── RESULTS ── */}
           <div id="results" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <SectionTitle>Results</SectionTitle>
+            <SectionTitle>Risultati</SectionTitle>
             <p style={{ fontSize: "0.95rem", marginBottom: "8px" }}>Questo progetto dimostra:</p>
             <ul style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               {project.results.map((r, i) => (
@@ -365,18 +366,19 @@ const ProjectDetail = () => {
                 <Mail size={26} strokeWidth={1.5} style={{ color: "var(--text-muted)" }} />
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                <h3 style={{ fontSize: "1.4rem", fontWeight: 700 }}>Like this project?</h3>
+                <h3 style={{ fontSize: "1.4rem", fontWeight: 700 }}>Ti è piaciuto il progetto?</h3>
                 <p style={{ fontSize: "0.875rem" }}>Sono disponibile per nuove opportunità lavorative.</p>
               </div>
             </div>
-            <button className="btn btn-primary" style={{ flexShrink: 0 }}>
-              Get in touch <ArrowRight size={16} />
-            </button>
+            <a href="mailto:giulia.creps2@gmail.com" className="btn btn-primary" style={{ flexShrink: 0 }}>
+              Scrivimi <ArrowRight size={16} />
+            </a>
           </div>
-
+ <Footer/>
         </main>
       </div>
     </div>
+   
   );
 };
 

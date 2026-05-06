@@ -1,18 +1,28 @@
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
   const navigate = useNavigate();
-  const [scrolled, setScrolled] = useState(false);
+  const sectionRef = useRef(null);
+  const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 3550);
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIntersecting(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "-50px 0px"
+      }
+    );
+    const target = document.getElementById("results");
+    if(target){
+      observer.observe(target);
+    }
 
-    window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
+    return() => observer.disconnect();
   }, []);
 
   return (
@@ -46,11 +56,10 @@ const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
         </div>
       )}
 
-        <button
-        className={`btn ${scrolled ? "btn-ghost" :  "btn-primary1"}`}
+        <a href="mailto:giulia.creps2@gmail.com" className={isIntersecting ? "btn btn-ghost" : "btn btn-primary1"}
       onClick={() => navigate("/")}>
-        Contact me  <ArrowRight size={15} />
-      </button>
+        Contattami  <ArrowRight size={15} />
+      </a>
     </nav>
   );
 };

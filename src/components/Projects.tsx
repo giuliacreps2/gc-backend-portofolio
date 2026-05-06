@@ -7,21 +7,21 @@ import imgProgetto3 from '../assets/images/Screenshot3.png'
 
 const projects = [
   {
-    id: "order-management",
-    title: "Order Management System",
-    description: "REST API per la gestione degli ordini con ruoli utente e autenticazione JWT.",
+    id: "lanzi-orto-urbano",
+    title: "Lanzi Orto Urbano",
+    description: "E-commerce backend con tracciabilità lotti, gestione B2B/B2C e sistema punti.",
     tags: ["☕Java", "🌱Spring Boot", "🐘PostgreSQL"],
     caseStudyUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/giuliacreps2/Lanzi-Orto-Urbano-Management",
     image: imgProgetto1,
   },
   {
-    id: "task-manager",
-    title: "Task Manager API",
-    description: "API per la gestione delle attività con utenti, scadenze e priorità.",
-    tags: ["☕Java", "🌱Spring Boot", "🐘MongoDB"],
+    id: "bstudent",
+    title: "BStudent Academy",
+    description: "Piattaforma e-learning con abbonamenti, contenuti premium e tracking progressi.",
+    tags: ["☕Java", "🌱Spring Boot", "🐘PostgreSQL"],
     caseStudyUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/giuliacreps2/BStudent-Management",
     image: imgProgetto2,
   },
   {
@@ -45,7 +45,7 @@ const Projects = () => {
 
         {/* Titolo sezione */}
         <div className="section-header">
-          <h2>Projects</h2>
+          <h2>Progetti</h2>
           <p>Alcuni dei progetti che ho realizzato.</p>
         </div>
 
@@ -98,7 +98,7 @@ const Projects = () => {
                     onMouseLeave={e => (e.currentTarget.style.gap = "6px")}
                     onClick={() => navigate(`/projects/${project.id}`)}
                   >
-                    Case study <ArrowRight size={15} />
+                    Leggi il caso studio <ArrowRight size={15} />
                   </a>
 
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
@@ -114,9 +114,9 @@ const Projects = () => {
 
           {/* Bottone View all projects */}
           <div style={{ display: "flex", justifyContent: "center", marginTop: "32px" }}>
-            <button className="btn btn-secondary">
-              View all projects <ArrowRight size={16} />
-            </button>
+            <a href="https://github.com/giuliacreps2" className="btn btn-secondary">
+              Vedi tutti i progetti <ArrowRight size={16} />
+            </a>
           </div>
 
         </div>

@@ -1,4 +1,6 @@
-import { Mail } from "lucide-react";
+import { GitCommitIcon, GitGraph, Mail } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
@@ -16,9 +18,9 @@ const Footer = () => {
 
         <div className="footer-socials">
           {[
-            { href: "https://github.com/giuliacreps2", icon: <Mail size={18} />, label: "GitHub" },
-            { href: "https://linkedin.com/in/tuoprofilo", icon: <Mail size={18} />, label: "LinkedIn" },
-            { href: "mailto:tuamail@email.com", icon: <Mail size={18} />, label: "Email" },
+            { href: "https://github.com/giuliacreps2", icon: <FontAwesomeIcon icon={faGithub} size="lg" style={{color: "rgb(255, 255, 255, 0.75)",}} />, label: "GitHub" },
+            { href: "https://www.linkedin.com/in/giulia-crepaldi-bstudent/", icon: <FontAwesomeIcon icon={faLinkedinIn} size="lg" style={{color: "rgba(255, 255, 255, 0.75)",}} />, label: "LinkedIn" },
+            { href: "mailto:giulia.creps2@gmail.com", icon: <Mail size={18} style={{color: "rgba(255, 255, 255, 0.75)",}}/>, label: "Email" },
           ].map(({ href, icon, label }) => (
             <a
               key={label}

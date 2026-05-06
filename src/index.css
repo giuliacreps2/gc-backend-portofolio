@@ -83,6 +83,7 @@ body {
   color: var(--text-secondary);
   line-height: 1.6;
   min-height: 100vh;
+  cursor: pointer;
 }
 
 img, video, svg {
@@ -832,6 +833,10 @@ footer {
     order: -1;   
   }
 
+   .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+
        .sidebar-nav {
     flex-direction: row;
     flex-wrap: wrap;
@@ -924,6 +929,11 @@ footer {
   .hero-buttons .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
   }
 
   .page-wrapper1 {
