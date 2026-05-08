@@ -1,7 +1,7 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import imgProgetto1 from '../assets/images/Screenshot1.png';
-import imgProgetto2 from '../assets/images/Screenshot2.png'
+import imgProgetto1 from '../assets/images/Lanzi-Orto-Urbano-Ecommerce-Microgreens.png';
+import imgProgetto2 from '../assets/images/BStudent-Academy.png'
 import imgProgetto3 from '../assets/images/Screenshot3.png'
 // --- DATI ---
 
@@ -40,7 +40,7 @@ const projects = [
 const Projects = () => {
   const navigate = useNavigate();
   return (
-    <section className="section" id="projects">
+    <section className="section" id="progetti">
       <div className="page-wrapper">
 
         {/* Titolo sezione */}

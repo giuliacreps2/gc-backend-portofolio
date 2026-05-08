@@ -25,7 +25,7 @@ const About = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="section" id="about">
+    <section className="section" id="formazione">
       <div className="page-wrapper" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 
         {/* ── ABOUT ME + BACKGROUND ── */}
@@ -72,12 +72,12 @@ const About = () => {
                 tecnico, ma sempre orientato al contesto.
               </p>
 
-                  {/* ── SKILL BUTTON ── */}
+                  {/* ── SKILL BUTTON ── 
         <div>
           <button className="btn btn-primary1" style={{ marginBottom: "2.2rem"}} onClick={() => setOpen(true)}>
             Aprrofondisci le competenze
           </button>
-        </div> 
+        </div> */}
 
             </div>
           </div>
@@ -122,7 +122,7 @@ const About = () => {
 
       
 
-        {/* ── POPUP SKILLS ── */}
+        {/* ── POPUP SKILLS ── 
         {open && (
           <div
             onClick={() => setOpen(false)}
@@ -174,7 +174,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        )}
+        )}*/}
 
         {/* ── CTA ── */}
         <div style={{
@@ -200,7 +200,7 @@ const About = () => {
             }}>
               <Mail size={26} strokeWidth={1.5} style={{ color: "var(--text-muted)" }} />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }} id="contatti">
               <h3 style={{ fontSize: "1.5rem", fontWeight: 700 }}>
                 Cerchi una backend developer?
               </h3>

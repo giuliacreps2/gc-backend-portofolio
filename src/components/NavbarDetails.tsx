@@ -56,8 +56,7 @@ const NavbarDetail = ({ projectTitle }: { projectTitle?: string }) => {
         </div>
       )}
 
-        <a href="mailto:giulia.creps2@gmail.com" className={isIntersecting ? "btn btn-ghost" : "btn btn-primary1"}
-      onClick={() => navigate("/")}>
+        <a href="mailto:giulia.creps2@gmail.com" className={isIntersecting ? "btn btn-ghost" : "btn btn-primary1"}>
         Contattami  <ArrowRight size={15} />
       </a>
     </nav>

@@ -113,7 +113,7 @@ const Hero = () => {
             </p>
 
             <div className="hero-buttons" style={{ display: "flex", gap: "16px", flexWrap: "wrap", paddingTop: "8px" }}>
-              <a href={`#${"Projects"}`} className="btn btn-primary">
+              <a href={`#${"progetti"}`} className="btn btn-primary">
                 Guarda i progetti <ArrowRight size={17} />
               </a>
               <a href="https://github.com/giuliacreps2" className="btn btn-secondary">
@@ -164,7 +164,7 @@ const Hero = () => {
         </section>
 
         {/* ── TECH STACK ── */}
-        <section style={{ marginBottom: "60px" }}>
+        <section style={{ marginBottom: "60px" }} id="stack-tecnico">
           <div className="tech-bar">
             <span className="label">Stack Tecnico</span>
             <div className="tech-bar-divider" />
