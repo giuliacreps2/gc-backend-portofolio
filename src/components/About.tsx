@@ -1,4 +1,4 @@
-import { ArrowRight, User, Mail } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { useState } from "react";
 import giuliaLinkIn from "../assets/images/Giulia-Crepaldi-Profilo.png";
 
