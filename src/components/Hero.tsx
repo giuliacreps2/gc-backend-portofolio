@@ -41,7 +41,7 @@ const features = [
   { title: "SECURE & RELIABLE", description: "Autenticazione, autorizzazione e validazione dei dati come standard di progetto.",               Icon: ShieldCheck },
 ];
 
-const navLinks = ["Home", "Projects", "Tech Stack", "About", "Contact"];
+
 
 // --- COMPONENTE ---
 
