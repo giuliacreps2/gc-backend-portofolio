@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 const navLinks = ["Home", "Progetti", "Stack Tecnico", "Formazione", "Contatti"];
 
 
-const NavbarHome = ({ projectTitle } : { projectTitle? : string }) => {
+const NavbarHome = () => {
    const navigate = useNavigate();
    const [isGhost, setisGhost] = useState(true)
   

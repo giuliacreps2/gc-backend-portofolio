@@ -1,5 +1,5 @@
 import { ArrowRight, Mail } from "lucide-react";
-import { useState } from "react";
+//import { useState } from "react";
 import giuliaLinkIn from "../assets/images/Giulia-Crepaldi-Profilo.png";
 
 // --- DATI ---
@@ -12,17 +12,17 @@ const education = [
 
 ];
 
-const skills = [
+/*const skills = [
   { title: "Core",       items: ["Backend Architecture", "API Design", "Data Modeling"] },
   { title: "Tech",       items: ["Java / Spring Boot", "PostgreSQL / MongoDB", "JWT / Security"] },
   { title: "Experience", items: ["E-commerce", "E-learning", "RBAC systems"] },
   { title: "Plus",       items: ["UX awareness", "Marketing mindset", "Content structure"] },
-];
+];*/
 
 // --- COMPONENTE ---
 
 const About = () => {
-  const [open, setOpen] = useState(false);
+  //const [open, setOpen] = useState(false);
 
   return (
     <section className="section" id="formazione">
@@ -95,7 +95,7 @@ const About = () => {
             }} />
 
             {education.map((item, i) => {
-              const isFirst = i === education.length -1;
+              //const isFirst = i === education.length -1;
             
               return(
               <div key={i} style={{ display: "flex", gap: "12px" }}>

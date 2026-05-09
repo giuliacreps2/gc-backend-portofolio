@@ -1,4 +1,4 @@
-import { GitCommitIcon, GitGraph, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
