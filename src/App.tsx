@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-    <BrowserRouter basename="/gc-backend-portofolio">
+    <BrowserRouter basename="/gc-backend-portofolio/">
       <Routes>
         <Route path="/" element={<Home />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
