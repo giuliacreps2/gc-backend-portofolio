@@ -2,13 +2,22 @@ import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
-const navLinks = [
-  "#Home",
-  "#Progetti",
-  "#Stack Tecnico",
-  "#Formazione",
-  "#Contatti",
+type NavLink = { label: string; id: string };
+
+const navLinks: NavLink[] = [
+  { label: "Home", id: "hero" },
+  { label: "Progetti", id: "progetti" },
+  { label: "Stack Tecnico", id: "stack" },
+  { label: "Formazione", id: "formazione" },
+  { label: "Contatti", id: "contatti" },
 ];
+
+const scrollToId = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
 const NavbarHome = () => {
   const navigate = useNavigate();
@@ -43,13 +52,13 @@ const NavbarHome = () => {
 
       <div className="navbar-links">
         {navLinks.map((link, i) => (
-          <a
-            key={link}
-            href={`#${link.toLowerCase().replace(" ", "-")}`}
+          <button
+            key={link.label}
             className={`nav-link${i === 0 ? " active" : ""}`}
+            onClick={() => scrollToId(link.id)}
           >
-            {link}
-          </a>
+            {link.label}
+          </button>
         ))}
       </div>
 

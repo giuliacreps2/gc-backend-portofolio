@@ -246,6 +246,7 @@ p {
 }
 
 .nav-link {
+  text-decoration: none;
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -253,6 +254,12 @@ p {
   transition: color var(--transition);
   position: relative;
   padding-bottom: 4px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0 0 4px 0;
 }
 
 .nav-link:hover {

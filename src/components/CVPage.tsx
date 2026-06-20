@@ -249,7 +249,7 @@ export default function CVGiuliaCrepaldi() {
         .stack-mini { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
         .stack-mini-tag { font-size: 9px; font-weight: 500; color: #534AB7; background: #EEEDFE; border-radius: 4px; padding: 2px 6px; }
 
-        .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .edu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 
         .edu-card {
           background: #ffffff; border: 0.5px solid #e2e8f0;
@@ -342,7 +342,13 @@ export default function CVGiuliaCrepaldi() {
                 </div>
                 <div>
                   <span className="contact-label">{c.label}</span>
-                  <span className="contact-value">{c.value}</span>
+                  {c.label === "Telefono" ? (
+                    <a href={`tel:${c.value}`} className="contact-value">
+                      {c.value}
+                    </a>
+                  ) : (
+                    <span className="contact-value">{c.value}</span>
+                  )}
                 </div>
               </div>
             ))}
@@ -426,17 +432,12 @@ export default function CVGiuliaCrepaldi() {
           <section>
             <div className="section-title">Profilo</div>
             <p className="profile-text">
-              Backend Developer con stack Java 17 / Spring Boot e database
-              PostgreSQL. Progetto API REST e architetture backend, integrando
-              frontend con React e Next.js, con attenzione alla scalabilità del
-              sistema e alla performance dell'applicativo. Il mio percorso —
-              dagli studi classici alla strategia digitale fino allo sviluppo
-              software — mi porta a ragionare prima sui flussi e sulle
-              strutture, poi sull'implementazione: come cresce il sistema sotto
-              carico, dove si creano i colli di bottiglia, come disaccoppiare i
-              componenti per permettere evoluzioni future. Cerco un contesto
-              strutturato con figure senior, in un team che valuti la solidità
-              delle scelte architetturali.
+              Backend Developer con stack Java 17 / Spring Boot e PostgreSQL.
+              Progetto API REST e architetture backend con attenzione alla
+              scalabilità e alla performance. Il mio percorso — dagli studi
+              classici alla strategia digitale allo sviluppo software — mi porta
+              a ragionare prima sui flussi, poi sull'implementazione. Cerco un
+              contesto strutturato con figure senior.
             </p>
           </section>
 
