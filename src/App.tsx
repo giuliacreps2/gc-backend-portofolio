@@ -8,7 +8,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <HashRouter basename="/gc-backend-portofolio/">
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
