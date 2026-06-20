@@ -54,7 +54,7 @@ const EXPERIENCES = [
     role: "Backend Developer & Software Architect",
     company: "Lanzi Orto Urbano",
     description:
-      "Progettazione e sviluppo dell'infrastruttura digitale aziendale su architettura SaaS scalabile. Modellazione del database PostgreSQL con strutture JSONB per metadati flessibili, implementazione di API REST con autenticazione stateless JWT e sviluppo di moduli per la generazione in stream binario (byte[]).",
+      "Progettazione e sviluppo dell'infrastruttura digitale con architettura SaaS scalabile. Modellazione del database PostgreSQL con strutture JSONB per metadati flessibili, API REST con autenticazione stateless JWT e sviluppo etichette in stream binario (byte[]).",
   },
   {
     date: "Dic 2021 – Presente",
