@@ -251,7 +251,7 @@ export default function CVGiuliaCrepaldi() {
         .tags { display: flex; flex-wrap: wrap; gap: 5px; }
         .tag { font-size: 10px; font-weight: 500; color: #534AB7; background: #EEEDFE; border-radius: 5px; padding: 3px 8px; }
 
-        .privacy { font-size: 8.5px; color: #94a3b8; text-align: center; padding-top: 14px; border-top: 0.5px solid #f1f5f9; margin-top: 4px; }
+        .privacy { font-size: 7.5px; color: #94a3b8; text-align: right; padding-top: 6px; margin-top: 4px; }
       `,
         }}
       />
