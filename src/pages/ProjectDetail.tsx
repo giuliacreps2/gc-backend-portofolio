@@ -430,6 +430,7 @@ const ProjectDetail = () => {
                 <div
                   style={{
                     display: "flex",
+                    flexWrap: "wrap",
                     alignItems: "center",
                     gap: "12px",
                     background: "var(--bg-surface)",
