@@ -10,17 +10,20 @@ const LINKS = [
   {
     icon: "ti-brand-github",
     label: "GitHub",
-    value: "https://github.com/giuliacreps2",
+    url: "https://github.com/giuliacreps2",
+    value: "/giuliacreps2",
   },
   {
     icon: "ti-brand-linkedin",
     label: "LinkedIn",
-    value: "https://www.linkedin.com/in/giulia-crepaldi-dev/",
+    url: "https://www.linkedin.com/in/giulia-crepaldi-dev/",
+    value: "/giulia-crepaldi-dev",
   },
   {
     icon: "ti-brand-github",
     label: "Portfolio",
-    value: "https://giuliacreps2.github.io/gc-backend-portofolio/",
+    url: "https://giuliacreps2.github.io/gc-backend-portofolio/",
+    value: "/gc-backend-portofolio",
   },
 ];
 
@@ -251,7 +254,7 @@ export default function CVGiuliaCrepaldi() {
         .tags { display: flex; flex-wrap: wrap; gap: 5px; }
         .tag { font-size: 10px; font-weight: 500; color: #534AB7; background: #EEEDFE; border-radius: 5px; padding: 3px 8px; }
 
-        .privacy { font-size: 7.5px; color: #94a3b8; text-align: right; padding-top: 6px; margin-top: 4px; }
+        .privacy { font-size: 6px; color: #94a3b8; text-align: left; padding-top: 6px; margin-top: 4px; }
       `,
         }}
       />
@@ -345,7 +348,7 @@ export default function CVGiuliaCrepaldi() {
                 </div>
                 <div>
                   <span className="contact-label">{l.label}</span>
-                  <a href={l.value}>
+                  <a href={l.url}>
                     <span className="contact-value">{l.value}</span>
                   </a>
                 </div>
