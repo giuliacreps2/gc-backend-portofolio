@@ -248,7 +248,7 @@ export default function CVGiuliaCrepaldi() {
         .edu-school { font-size: 9.5px; font-weight: 700; color: #0f172a; }
         .edu-para { font-size: 9px; color: #64748b; line-height: 1.3; margin: 0; }
 
-        .tech-section { margin-bottom: 10px; }
+        .tech-section { margin-bottom: 2px; }
         .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px }
         .tech-category { font-size: 9.5px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
         .tags { display: flex; flex-wrap: wrap; gap: 5px; }
