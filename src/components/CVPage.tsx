@@ -51,7 +51,7 @@ const EXPERIENCES = [
     role: "Backend Developer & Software Architect",
     company: "Lanzi Orto Urbano",
     description:
-      "Progettazione e sviluppo dell'infrastruttura digitale aziendale su architettura SaaS scalabile. Modellazione del database PostgreSQL con strutture JSONB per metadati flessibili, implementazione di API REST con autenticazione stateless JWT e sviluppo di moduli per la generazione in stream binario (byte[]) di codici logici standard.",
+      "Progettazione e sviluppo dell'infrastruttura digitale aziendale su architettura SaaS scalabile. Modellazione del database PostgreSQL con strutture JSONB per metadati flessibili, implementazione di API REST con autenticazione stateless JWT e sviluppo di moduli per la generazione in stream binario (byte[]).",
   },
   {
     date: "Dic 2021 – Presente",
@@ -131,10 +131,11 @@ export default function CVGiuliaCrepaldi() {
           @page { size: A4; margin: 0; }
           .no-print { display: none !important; }
           .cv-outer { background: white !important; padding: 0 !important; }
-          .cv-wrap { box-shadow: none !important; border-radius: 0 !important; }
+          .cv-wrap { width: 100%; max-width: 100%; }
         }
 
         .cv-wrap {
+          width: 100%;
           max-width: 100%;
           margin: 0 auto;
           display: grid;
@@ -202,7 +203,7 @@ export default function CVGiuliaCrepaldi() {
           padding-bottom: 6px; border-bottom: 0.5px solid #e2e8f0;
         }
 
-        .profile-text { font-size: 11px; line-height: 1.7; color: #475569; margin: 0; }
+        .profile-text { font-size: 10px; line-height: 1.7; color: #475569; margin: 0; }
 
         .timeline { position: relative; padding-left: 18px; border-left: 0.5px solid #cbd5e1; }
 
@@ -245,6 +246,7 @@ export default function CVGiuliaCrepaldi() {
         .edu-para { font-size: 9px; color: #64748b; line-height: 1.3; margin: 0; }
 
         .tech-section { margin-bottom: 10px; }
+        .tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px }
         .tech-category { font-size: 9.5px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
         .tags { display: flex; flex-wrap: wrap; gap: 5px; }
         .tag { font-size: 10px; font-weight: 500; color: #534AB7; background: #EEEDFE; border-radius: 5px; padding: 3px 8px; }
@@ -468,18 +470,28 @@ export default function CVGiuliaCrepaldi() {
           {/* Tech Stack */}
           <section>
             <div className="section-title">Tech Stack</div>
-            {Object.entries(TECH_STACK).map(([cat, items]) => (
-              <div key={cat} className="tech-section">
-                <div className="tech-category">{cat}</div>
-                <div className="tags">
-                  {items.map((t, i) => (
-                    <span key={i} className="tag">
-                      {t}
-                    </span>
-                  ))}
+            <div className="tech-grid">
+              {Object.entries(TECH_STACK).map(([cat, items]) => (
+                <div
+                  key={cat}
+                  className="tech-section"
+                  style={
+                    cat === "Frontend"
+                      ? { gridColumnStart: 2, gridRowStart: 1 }
+                      : undefined
+                  }
+                >
+                  <div className="tech-category">{cat}</div>
+                  <div className="tags">
+                    {items.map((t, i) => (
+                      <span key={i} className="tag">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </section>
 
           <div className="privacy">
