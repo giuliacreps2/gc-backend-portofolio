@@ -128,14 +128,14 @@ export default function CVGiuliaCrepaldi() {
 
         @media print {
           body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-          @page { size: A4; margin: 10mm; }
+          @page { size: A4; margin: 0; }
           .no-print { display: none !important; }
           .cv-outer { background: white !important; padding: 0 !important; }
-          .cv-wrap { box-shadow: none !important; border-radius: 0 !important; }
+          .cv-wrap { width: 100%; max-width: 100%; }
         }
 
         .cv-wrap {
-          max-width: 880px;
+          max-width: 100%;
           margin: 0 auto;
           display: grid;
           grid-template-columns: 210px 1fr;
