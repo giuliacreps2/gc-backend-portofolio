@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import imgProgetto1 from "../assets/images/Homepage-Lanzi-Orto-Urbano.png";
 import imgProgetto2 from "../assets/images/BStudent-Academy.png";
 import imgProgetto3 from "../assets/images/Screenshot3.png";
+import { Link } from "react-router-dom";
 // --- DATI ---
 
 const projects = [
@@ -107,27 +108,26 @@ const Projects = () => {
 
                 {/* Footer con link */}
                 <div className="project-card-footer">
-                  <a
-                    href={project.caseStudyUrl}
+                  <Link
+                    to={`/projects/${project.id}`}
                     className="btn-ghost1"
                     style={{
                       transition: "gap 0.2s",
                     }}
                     onMouseEnter={(e) => (e.currentTarget.style.gap = "10px")}
                     onMouseLeave={(e) => (e.currentTarget.style.gap = "6px")}
-                    onClick={() => navigate(`/projects/${project.id}`)}
                   >
                     Leggi il caso studio <ArrowRight size={15} />
-                  </a>
+                  </Link>
 
-                  <a
-                    href={project.githubUrl}
+                  <Link
+                    to={`/projects/${project.githubUrl}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-ghost1"
                   >
                     GitHub <ExternalLink size={14} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

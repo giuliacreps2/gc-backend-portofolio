@@ -27,9 +27,9 @@ const skills = [
   },
   {
     title: "Tech",
-    items: ["Java / Spring Boot", "PostgreSQL / MongoDB", "JWT / Security"],
+    items: ["Java / Spring Boot", "PostgreSQL", "JWT / Security"],
   },
-  { title: "Experience", items: ["E-commerce", "E-learning", "RBAC systems"] },
+  { title: "Experience", items: ["E-commerce", "E-learning", "Saas"] },
   {
     title: "Plus",
     items: ["UX awareness", "Marketing mindset", "Content structure"],
