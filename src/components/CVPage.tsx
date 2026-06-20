@@ -51,7 +51,7 @@ const EXPERIENCES = [
     role: "Backend Developer & Software Architect",
     company: "Lanzi Orto Urbano",
     description:
-      "Progettazione e sviluppo end-to-end dell'infrastruttura digitale aziendale, strutturando un e-commerce e un gestionale modulare basati su architettura SaaS scalabile. Modellazione del database relazionale con gestione avanzata di metadati flessibili tramite campi documentali. Progettazione di API REST, implementazione di sistemi di autenticazione stateless e integrazione di moduli per la generazione in stream binario di codici standard di logistica. Supervisione dell'integrazione con l'interfaccia utente.",
+      "Progettazione e sviluppo end-to-end dell'infrastruttura digitale aziendale, strutturando un e-commerce e un gestionale modulare basati su architettura SaaS scalabile. Modellazione del database relazionale con gestione avanzata di metadati flessibili tramite JSONB. Progettazione di API REST, implementazione di sistemi di autenticazione stateless e integrazione di moduli per la generazione di etichette in byte[]. Supervisione dell'integrazione con l'interfaccia utente.",
   },
   {
     date: "Dic 2021 – Presente",
@@ -59,7 +59,7 @@ const EXPERIENCES = [
     role: "Founder & Product Architect",
     company: "BStudent Academy",
     description:
-      "Ideazione e design architetturale di una piattaforma EdTech SaaS dedicata al supporto scolastico. Definizione completa del modello logico dei dati (ERD) per la gestione di flussi didattici complessi, percorsi utente e checkpoint evolutivi. Pianificazione dell'architettura applicativa e della roadmap di rilascio, strutturando i requisiti per moduli di gamification e sistemi di comunicazione asincrona in real-time.",
+      "Ideazione e design architetturale di una piattaforma EdTech dedicata al supporto scolastico. Definizione completa del modello logico dei dati (ERD) per la gestione di flussi didattici complessi, percorsi utente e checkpoint evolutivi. Pianificazione dell'architettura applicativa e della roadmap di rilascio, strutturando i requisiti per moduli di gamification e sistemi di comunicazione asincrona in real-time.",
   },
   {
     date: "Gen 2024 – Apr 2026",
@@ -131,7 +131,7 @@ export default function CVGiuliaCrepaldi() {
           @page { size: A4; margin: 0; }
           .no-print { display: none !important; }
           .cv-outer { background: white !important; padding: 0 !important; }
-          .cv-wrap { width: 100%; max-width: 100%; }
+          .cv-wrap { box-shadow: none !important; border-radius: 0 !important; }
         }
 
         .cv-wrap {
@@ -202,7 +202,7 @@ export default function CVGiuliaCrepaldi() {
           padding-bottom: 6px; border-bottom: 0.5px solid #e2e8f0;
         }
 
-        .profile-text { font-size: 11.5px; line-height: 1.7; color: #475569; margin: 0; }
+        .profile-text { font-size: 11px; line-height: 1.7; color: #475569; margin: 0; }
 
         .timeline { position: relative; padding-left: 18px; border-left: 0.5px solid #cbd5e1; }
 
@@ -222,7 +222,7 @@ export default function CVGiuliaCrepaldi() {
 
         .timeline-role { font-size: 12px; font-weight: 700; color: #0f172a; margin: 0 0 1px 0; }
         .timeline-company { font-size: 10px; font-weight: 600; color: #534AB7; text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 5px 0; }
-        .timeline-desc { font-size: 10.5px; line-height: 1.6; color: #475569; margin: 0 0 6px 0; }
+        .timeline-desc { font-size: 10px; line-height: 1.6; color: #475569; margin: 0 0 6px 0; }
 
         .stack-mini { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
         .stack-mini-tag { font-size: 9px; font-weight: 500; color: #534AB7; background: #EEEDFE; border-radius: 4px; padding: 2px 6px; }
