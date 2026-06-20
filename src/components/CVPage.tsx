@@ -32,11 +32,11 @@ const LANGUAGES = [
 const SOFT_SKILLS = [
   {
     title: "Pensiero analitico",
-    desc: "Scomposizione strutturata di domini complessi e flussi di business.",
+    desc: "",
   },
   {
     title: "Attenzione al dettaglio",
-    desc: "Approccio meticoloso alla qualità del codice e all'architettura dei dati.",
+    desc: "",
   },
   {
     title: "Business oriented",
@@ -404,6 +404,12 @@ export default function CVGiuliaCrepaldi() {
               </div>
             ))}
           </div>
+
+          <div className="privacy">
+            Autorizzo il trattamento dei miei dati personali presenti nel
+            curriculum vitae ai sensi del D.lgs. 101/2018 e dell'art. 13 del
+            GDPR (Regolamento UE 2016/679).
+          </div>
         </aside>
 
         {/* MAIN */}
@@ -493,12 +499,6 @@ export default function CVGiuliaCrepaldi() {
               ))}
             </div>
           </section>
-
-          <div className="privacy">
-            Autorizzo il trattamento dei miei dati personali presenti nel
-            curriculum vitae ai sensi del D.lgs. 101/2018 e dell'art. 13 del
-            GDPR (Regolamento UE 2016/679).
-          </div>
         </main>
       </div>
     </div>
