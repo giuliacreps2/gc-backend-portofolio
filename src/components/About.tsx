@@ -1,6 +1,7 @@
 import { ArrowRight, Mail } from "lucide-react";
-//import { useState } from "react";
+import { useState } from "react";
 import giuliaLinkIn from "../assets/images/Giulia-Crepaldi-Profilo.png";
+import { Link } from "react-router-dom";
 
 // --- DATI ---
 
@@ -19,17 +20,26 @@ const education = [
   },
 ];
 
-/*const skills = [
-  { title: "Core",       items: ["Backend Architecture", "API Design", "Data Modeling"] },
-  { title: "Tech",       items: ["Java / Spring Boot", "PostgreSQL / MongoDB", "JWT / Security"] },
+const skills = [
+  {
+    title: "Core",
+    items: ["Backend Architecture", "API Design", "Data Modeling"],
+  },
+  {
+    title: "Tech",
+    items: ["Java / Spring Boot", "PostgreSQL / MongoDB", "JWT / Security"],
+  },
   { title: "Experience", items: ["E-commerce", "E-learning", "RBAC systems"] },
-  { title: "Plus",       items: ["UX awareness", "Marketing mindset", "Content structure"] },
-];*/
+  {
+    title: "Plus",
+    items: ["UX awareness", "Marketing mindset", "Content structure"],
+  },
+];
 
 // --- COMPONENTE ---
 
 const About = () => {
-  //const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="section" id="formazione">
@@ -126,12 +136,16 @@ const About = () => {
                 </div>
               </div>
 
-              {/* ── SKILL BUTTON ── 
-        <div>
-          <button className="btn btn-primary1" style={{ marginBottom: "2.2rem"}} onClick={() => setOpen(true)}>
-            Aprrofondisci le competenze
-          </button>
-        </div> */}
+              {/* ── SKILL BUTTON ── */}
+              <div>
+                <button
+                  className="btn btn-primary1"
+                  style={{ marginBottom: "2.2rem" }}
+                  onClick={() => setOpen(true)}
+                >
+                  Approfondisci le competenze
+                </button>
+              </div>
             </div>
           </div>
 
@@ -193,39 +207,73 @@ const About = () => {
           </div>
         </div>
 
-        {/* ── POPUP SKILLS ── 
+        {/* ── POPUP SKILLS ──*/}
         {open && (
           <div
             onClick={() => setOpen(false)}
             style={{
-              position: "fixed", inset: 0,
+              position: "fixed",
+              inset: 0,
               background: "rgba(0,0,0,0.6)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              zIndex: 999, padding: "20px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 999,
+              padding: "20px",
             }}
           >
             <div
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
               style={{
-                width: "100%", maxWidth: "720px",
+                width: "100%",
+                maxWidth: "720px",
                 background: "var(--bg-surface)",
                 borderRadius: "var(--radius-xl)",
                 border: "1.5px solid var(--border)",
                 padding: "32px",
-                display: "flex", flexDirection: "column", gap: "28px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "28px",
               }}
             >
-              <h3 style={{ fontSize: "1.4rem", fontWeight: 700 }}>Skill System</h3>
+              <h3 style={{ fontSize: "1.4rem", fontWeight: 700 }}>
+                Skill System
+              </h3>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "24px",
+                }}
+              >
                 {skills.map(({ title, items }) => (
                   <div key={title}>
-                    <h5 style={{ fontWeight: 600, marginBottom: "8px", color: "var(--text-primary)" }}>
+                    <h5
+                      style={{
+                        fontWeight: 600,
+                        marginBottom: "8px",
+                        color: "var(--text-primary)",
+                      }}
+                    >
                       {title}
                     </h5>
-                    <ul style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                      {items.map(item => (
-                        <li key={item} style={{ fontSize: "0.9rem", display: "flex", gap: "8px" }}>
+                    <ul
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "6px",
+                      }}
+                    >
+                      {items.map((item) => (
+                        <li
+                          key={item}
+                          style={{
+                            fontSize: "0.9rem",
+                            display: "flex",
+                            gap: "8px",
+                          }}
+                        >
                           <span style={{ color: "var(--accent)" }}>→</span>
                           {item}
                         </li>
@@ -235,17 +283,26 @@ const About = () => {
                 ))}
               </div>
 
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <button className="btn btn-secondary" onClick={() => setOpen(false)}>
-                  Close
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <button
+                  className="btn btn-secondary"
+                  onClick={() => setOpen(false)}
+                >
+                  Chiudi
                 </button>
-                <button className="btn btn-primary">
-                  Scarica il CV
-                </button>
+                <Link to="/cv" className="btn btn-primary">
+                  Visualizza il CV
+                </Link>
               </div>
             </div>
           </div>
-        )}*/}
+        )}
 
         {/* ── CTA ── */}
         <div
