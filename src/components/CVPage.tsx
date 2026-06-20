@@ -51,7 +51,7 @@ const EXPERIENCES = [
     role: "Backend Developer & Software Architect",
     company: "Lanzi Orto Urbano",
     description:
-      "Progettazione e sviluppo end-to-end dell'infrastruttura digitale aziendale, strutturando un e-commerce e un gestionale modulare basati su architettura SaaS scalabile. Modellazione del database relazionale con gestione avanzata di metadati flessibili tramite JSONB. Progettazione di API REST, implementazione di sistemi di autenticazione stateless e integrazione di moduli per la generazione di etichette in byte[]. Supervisione dell'integrazione con l'interfaccia utente.",
+      "Progettazione e sviluppo dell'infrastruttura digitale aziendale su architettura SaaS scalabile. Modellazione del database PostgreSQL con strutture JSONB per metadati flessibili, implementazione di API REST con autenticazione stateless JWT e sviluppo di moduli per la generazione in stream binario (byte[]) di codici logici standard.",
   },
   {
     date: "Dic 2021 – Presente",
@@ -59,7 +59,7 @@ const EXPERIENCES = [
     role: "Founder & Product Architect",
     company: "BStudent Academy",
     description:
-      "Ideazione e design architetturale di una piattaforma EdTech dedicata al supporto scolastico. Definizione completa del modello logico dei dati (ERD) per la gestione di flussi didattici complessi, percorsi utente e checkpoint evolutivi. Pianificazione dell'architettura applicativa e della roadmap di rilascio, strutturando i requisiti per moduli di gamification e sistemi di comunicazione asincrona in real-time.",
+      "Ideazione e design architetturale di una piattaforma EdTech. Definizione del modello logico dei dati (ERD) per flussi didattici complessi, pianificazione dell'architettura applicativa con Spring Data JPA e strutturazione della roadmap tecnica per l'integrazione di moduli di gamification e sistemi real-time.",
   },
   {
     date: "Gen 2024 – Apr 2026",
