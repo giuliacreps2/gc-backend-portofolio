@@ -51,19 +51,7 @@ const EXPERIENCES = [
     role: "Backend Developer & Software Architect",
     company: "Lanzi Orto Urbano",
     description:
-      "Progettazione e sviluppo dell'intera infrastruttura digitale: piattaforma e-commerce e gestionale modulare su architettura orientata alla scalabilità SaaS. Modellazione del database relazionale su PostgreSQL (entità catalogo, ordini, anagrafiche) con strutture JSONB per metadati flessibili. Sviluppo API REST con Java 17 e Spring Boot, autenticazione stateless con Spring Security e JWT, generazione GS1-128 in stream binario (byte[]). Integrazione frontend con React, Next.js e Tailwind CSS.",
-    stack: [
-      "Java 17",
-      "Spring Boot",
-      "Spring Security",
-      "JWT",
-      "Spring Data JPA",
-      "PostgreSQL",
-      "JSONB",
-      "REST API",
-      "Next.js",
-      "TypeScript",
-    ],
+      "Progettazione e sviluppo end-to-end dell'infrastruttura digitale aziendale, strutturando un e-commerce e un gestionale modulare basati su architettura SaaS scalabile. Modellazione del database relazionale con gestione avanzata di metadati flessibili tramite campi documentali. Progettazione di API REST, implementazione di sistemi di autenticazione stateless e integrazione di moduli per la generazione in stream binario di codici standard di logistica. Supervisione dell'integrazione con l'interfaccia utente.",
   },
   {
     date: "Dic 2021 – Presente",
@@ -71,16 +59,7 @@ const EXPERIENCES = [
     role: "Founder & Product Architect",
     company: "BStudent Academy",
     description:
-      "Ideazione e progettazione di una piattaforma EdTech SaaS per studenti delle scuole superiori (materie umanistiche: Italiano, Latino, Greco). Progetto attualmente in fase di architettura: prima bozza dell'ERD completata, con entità per corsi, lezioni, checkpoint e anagrafiche studenti. Pianificazione dell'architettura applicativa con Spring Boot e Spring Data JPA. Roadmap che include infrastruttura di gamification e, in una fase successiva, protocolli WebSocket per sessioni real-time (in fase di studio).",
-    stack: [
-      "Java 17",
-      "Spring Boot",
-      "Spring Data JPA",
-      "PostgreSQL",
-      "REST API",
-      "OOP",
-      "Git",
-    ],
+      "Ideazione e design architetturale di una piattaforma EdTech SaaS dedicata al supporto scolastico. Definizione completa del modello logico dei dati (ERD) per la gestione di flussi didattici complessi, percorsi utente e checkpoint evolutivi. Pianificazione dell'architettura applicativa e della roadmap di rilascio, strutturando i requisiti per moduli di gamification e sistemi di comunicazione asincrona in real-time.",
   },
   {
     date: "Gen 2024 – Apr 2026",
@@ -88,8 +67,7 @@ const EXPERIENCES = [
     role: "Co-Founder & Brand Strategist",
     company: "Godo Creative",
     description:
-      "Consulenza strategica per PMI: digitalizzazione dei processi operativi, introduzione di strumenti CRM, gestione dei canali digitali e pianificazione campagne ADV. Analisi KPI e ottimizzazione del budget.",
-    stack: [],
+      "Consulenza strategica orientata alla digitalizzazione dei processi operativi per PMI. Implementazione di sistemi CRM per l'efficientamento dei flussi interni, analisi dei KPI di business, ottimizzazione dei budget e pianificazione della presenza digitale.",
   },
 ];
 
@@ -464,15 +442,6 @@ export default function CVGiuliaCrepaldi() {
                   <div className="timeline-role">{exp.role}</div>
                   <div className="timeline-company">{exp.company}</div>
                   <p className="timeline-desc">{exp.description}</p>
-                  {exp.stack.length > 0 && (
-                    <div className="stack-mini">
-                      {exp.stack.map((t, j) => (
-                        <span key={j} className="stack-mini-tag">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
