@@ -1,6 +1,6 @@
 import drawSQLLanzi from "../assets/images/ERD-Lanzi-Orto-Urbano.png";
 import backoffice from "../assets/images/Backoffice-Label-Lanzi-Orto-Urbano.png";
-
+import ERDtrasporti from "../assets/images/drawSQL-image-export-2026-08-07.webp";
 // --- TIPI ---
 
 export interface ApiEndpoint {
@@ -8,6 +8,11 @@ export interface ApiEndpoint {
   path: string;
   description: string;
   responseExample: string;
+}
+
+export interface CoreOperations {
+  role: string;
+  description: string;
 }
 
 export interface Project {
@@ -30,6 +35,13 @@ export interface Project {
   };
 
   apiEndpoints?: ApiEndpoint[];
+
+  coreOperations?: CoreOperations[];
+
+  cliInteraction?: {
+    description: string;
+    howItConnects: string[];
+  };
 
   frontendIntegration?: {
     description: string;
@@ -191,6 +203,86 @@ export const projects: Project[] = [
         "Sviluppo del motore di calcolo dei punteggi e degli algoritmi di validazione dei test",
       ],
     },
+  },
+  {
+    id: "gestionale-trasporto-pubblico",
+    title: "Gestionale Trasporto Pubblico",
+    shortDescription:
+      "Sistema gestionale CLI per compagnia di trasporti pubblici, con architettura DAO e Role-Based Access su Java, JPA e PostgreSQL.",
+    tags: [
+      "Java",
+      "JPA (Hibernate)",
+      "PostgreSQL",
+      "DAO Pattern",
+      "CLI Application",
+      "Role-Based Access",
+    ],
+    githubUrl:
+      "https://github.com/giuliacreps2/BW4-Gestionale-Trasporto-Pubblico",
+    image: null,
+
+    overview: `Applicazione gestionale da riga di comando sviluppata in team per digitalizzare le operazioni di una compagnia di trasporti pubblici. Il sistema copre l'intero ciclo operativo: emissione di biglietti e abbonamenti, vidimazione a bordo, gestione del parco mezzi e reportistica strategica per l'amministrazione. Il progetto, realizzato in un piccolo team di sviluppo, è stato l'occasione per approfondire in prima persona la progettazione di un'architettura dati solida e la separazione netta tra logica di business e accesso ai dati, con particolare attenzione alla robustezza del sistema in un contesto di interazione diretta via CLI.`,
+
+    problem: `Costruire un sistema affidabile e privo di crash in un contesto di interazione diretta via Scanner CLI, dove l'input non validato dell'utente e le eccezioni a runtime (JPA/Hibernate, mismatch di digitazione) rappresentano un rischio costante per la stabilità. La sfida centrale è stata progettare una gerarchia di gestione degli errori capace di isolare i fallimenti puntuali (es. una vidimazione non riuscita) senza mai compromettere l'esecuzione dell'intero programma, oltre a definire un sistema di permessi granulare che distinguesse chiaramente le funzionalità accessibili a Utente e Amministratore.`,
+
+    solution: [
+      "Adozione di UUID come identificativo univoco per tutte le entità, con un Converter UUID/Integer custom per velocizzare l'interazione via CLI senza alterare la struttura del database",
+      "Applicazione del DAO Pattern per separare nettamente la logica di business dall'accesso ai dati, migliorando manutenibilità e testabilità del codice",
+      "Progettazione di un sistema di Role-Based Access granulare, con permessi differenziati per Utente Semplice e Amministratore su ogni singola funzionalità (emissione titoli, gestione mezzi, statistiche)",
+      "Implementazione di una gerarchia di gestione delle eccezioni a più livelli (InputMismatchException, EntityNotFoundException, PersistenceException) per garantire un Graceful Shutdown dei singoli blocchi operativi",
+      "Sviluppo di logiche di validazione dinamica per lo stato di mezzi, tessere e abbonamenti, integrate nel flusso decisionale del sistema",
+    ],
+
+    architecture: {
+      systemFlow: [
+        "CLI (Scanner)",
+        "Business Logic Layer",
+        "DAO Layer",
+        "JPA / Hibernate",
+        "PostgreSQL",
+      ],
+      erdImage: ERDtrasporti,
+      dataDecisions: [
+        "Modello relazionale organizzato per domini funzionali: Anagrafica (Utenti → Tessere), Vendite (Punti_di_Emissione → Biglietti/Abbonamenti), Logistica (Mezzi → Tratte → Percorrenze)",
+        "Uso di UUID per garantire l'integrità e la non-prevedibilità degli identificativi, con conversione trasparente verso interi per l'usabilità in CLI",
+        "Separazione delle entità 'non derivate' (Utenti, Punti_di_Emissione, Mezzi_di_Trasporto, Tratte) da quelle 'derivate', per mantenere un modello dati coerente e privo di ridondanze",
+      ],
+    },
+
+    coreOperations: [
+      {
+        role: "Utente Semplice",
+        description:
+          "Accesso ai servizi essenziali: emissione di biglietti e abbonamenti nominativi, consultazione di orari, tratte e stato dei mezzi, vidimazione dei titoli tramite associazione dinamica mezzo-biglietto.",
+      },
+      {
+        role: "Amministratore",
+        description:
+          "Gestione strategica del sistema: CRUD completo su punti vendita, tessere e parco mezzi, monitoraggio dei periodi di manutenzione, reportistica su vendite, emissioni per punto vendita e tempo medio di percorrenza effettivo per tratta.",
+      },
+    ],
+
+    cliInteraction: {
+      description:
+        "L'applicazione espone un menu testuale via Scanner, che instrada le richieste al livello di business logic in base al ruolo autenticato. Ogni azione critica è isolata da un blocco try-catch dedicato, così da restituire un feedback chiaro all'utente senza interrompere l'esecuzione del programma.",
+      howItConnects: [
+        "Il menu CLI filtra dinamicamente le opzioni disponibili in base al ruolo (Utente o Amministratore)",
+        "Ogni operazione passa dal Business Logic Layer al DAO Layer, che dialoga con PostgreSQL tramite JPA/Hibernate",
+        "Le eccezioni di input e di persistenza vengono intercettate a livello locale, garantendo continuità operativa",
+      ],
+    },
+
+    challenges: [
+      "Definire una matrice di permessi granulare e coerente tra le numerose funzionalità del sistema, evitando sovrapposizioni o zone grigie tra i ruoli",
+      "Garantire la stabilità dell'applicazione in un contesto di input diretto da CLI, dove l'utente può introdurre dati non validi in qualsiasi momento",
+      "Coordinare il lavoro di gruppo su un modello dati condiviso, mantenendo coerenza tra le entità derivate e non derivate durante lo sviluppo parallelo",
+    ],
+
+    results: [
+      "Sistema stabile e privo di crash anche in presenza di input errati o accessi a dati inesistenti, grazie alla gerarchia di gestione delle eccezioni",
+      "Architettura DAO pulita, con chiara separazione delle responsabilità tra logica di business e persistenza dei dati",
+      "Modello di permessi Role-Based applicato in modo coerente su tutte le funzionalità del sistema, dall'emissione titoli alla reportistica amministrativa",
+    ],
   },
 
   /* {

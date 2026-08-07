@@ -2,7 +2,7 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import imgProgetto1 from "../assets/images/Homepage-Lanzi-Orto-Urbano.png";
 import imgProgetto2 from "../assets/images/BStudent-Academy.png";
-import imgProgetto3 from "../assets/images/Screenshot3.png";
+import imgProgetto3 from "../assets/images/the-transport-enthusiast-dc-yHoVmfx9qVI-unsplash (1).jpg";
 import { Link } from "react-router-dom";
 // --- DATI ---
 
@@ -26,6 +26,16 @@ const projects = [
     caseStudyUrl: "#",
     githubUrl: "https://github.com/giuliacreps2/BStudent-Management",
     image: imgProgetto2,
+  },
+  {
+    id: "gestionale-trasporto-pubblico",
+    title: "BW4-Gestionale-Trasporto-Pubblico",
+    description: "",
+    tags: ["☕Java", "🌱Spring Boot", "🐘PostgreSQL"],
+    caseStudyUrl: "#",
+    githubUrl:
+      "https://github.com/giuliacreps2/BW4-Gestionale-Trasporto-Pubblico",
+    image: imgProgetto3,
   },
   /* {
     id: "auth-service",
