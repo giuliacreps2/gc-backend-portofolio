@@ -130,14 +130,14 @@ const Projects = () => {
                     Leggi il caso studio <ArrowRight size={15} />
                   </Link>
 
-                  <Link
-                    to={`/projects/${project.githubUrl}`}
+                  <a
+                    href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-ghost1"
                   >
                     GitHub <ExternalLink size={14} />
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
